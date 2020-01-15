@@ -1,4 +1,22 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<input type="radio"
+       name="reactive"
+       value=0
+       [(ngModel)]="componentType">Template-driven<br>
+<input type="radio"
+       name="reactive"
+       value=1
+       [(ngModel)]="componentType">Reactive<br>
+<input type="radio"
+       name="reactive"
+       value=2
+       [(ngModel)]="componentType">Reactive Workaround<br>
+
+<app-custom-form-component *ngIf="componentType==0" [(ngModel)]="records"></app-custom-form-component>
+
+<form [formGroup]="formGroup" *ngIf="componentType==1">
+    <app-custom-form-component formControlName="records"></app-custom-form-component>
+</form>
+
+<form [formGroup]="formGroup" *ngIf="componentType==2">
+    <app-custom-form-component-work-around formControlName="recordsWorkaround"></app-custom-form-component-work-around>
+</form>

@@ -1,0 +1,8 @@
+<div *ngFor="let record of getRecords(); let index = index;" class="row-grid">
+    <div style="display: flex">
+        <span>{{index}}</span>
+        <input [(ngModel)]="record.text">
+        <button (click)="insert(index)">Insert</button>
+        <button (click)="delete(index)" [disabled]="val.length==1">Delete</button>
+    </div>
+</div>
